@@ -1,1 +1,1 @@
-web: uvicorn app:app --host api-production-6ca4.up.railway.app --port $PORT
+web: uvicorn app:app --host 0.0.0.0 --port $PORT
