@@ -20,7 +20,7 @@ def get_by_id(id:int):
 
 @entrega.post('/entrega/post',tags=["entregas"])
 def create(entrega_i: Entrega):
-    #data_hora_atual = datetime.now()
+    data_hora_atual = datetime.now()
     date = data_hora_atual.strftime("%d-%m-%Y")
     hour = data_hora_atual.strftime("%H:%M:%S")
 
