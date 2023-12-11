@@ -90,7 +90,7 @@ def delete_user(num_doc: int):
     response = conn.execute(vendas.select().where(vendas.c.num_doc == num_doc)).first()
     
     if response is None:
-        return HTTPException(status_code=404, detail="Entrega não encontrada no banco de dados")
+        return HTTPException(status_code=404, detail="Venda não encontrada no banco de dados")
     else:
         conn.execute(vendas.delete().where(vendas.c.num_doc == num_doc))
-        return {f"Dados do documento {id}, excluídos"}
+        return {f"Dados do documento {num_doc}, excluídos"}

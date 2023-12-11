@@ -8,7 +8,7 @@ entregas = Table(
     Column("id", Integer, primary_key=True, autoincrement=True),
     Column("nome_cliente",String(255)),
     Column("logradouro", String(255)),
-    Column("telefone", Float),
+    Column("telefone", String(255)),
     Column("bairro", String(255)),
     Column("status", String(255)),
     Column("data", String(255)),
