@@ -5,11 +5,12 @@ from config.db import meta, engine
 vendas = Table(
     "vendas",
     meta,
-    Column("num_doc", Integer, primary_key=True),
+    Column("Id", Integer, primary_key=True),
+    Column("num_doc", Integer),
     Column("nome_cliente",String(255)),
     Column("valor", Float),
-    Column("doc_cliente", Float),
-    Column("status", Integer),
+    Column("doc_cliente", String(255)),
+    Column("status", String(255)),
     Column("hora", String(255)),
     Column("data", String(255))
 )
