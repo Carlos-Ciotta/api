@@ -6,7 +6,7 @@ class Entrega(BaseModel):
     nome_cliente: str
     logradouro: str
     bairro: str
-    telefone: float
+    telefone: str
     status : str
     hora : str
     data : str
