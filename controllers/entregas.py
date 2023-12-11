@@ -4,7 +4,6 @@ from models.entregas import entregas
 from schemas.entregas import Entrega
 from sqlalchemy import select, insert
 from typing import List
-from starlette.status import HTTP_204_NO_CONTENT
 from datetime import datetime
 import re
 
@@ -69,7 +68,7 @@ def update_doc(entrega_i: Entrega, id: int):
         except ValueError:
             return HTTPException(status_code=422, detail="Dados inválidos")
 
-@entrega.delete("/entregas/delete/{id}", tags=["entregas"], status_code=HTTP_204_NO_CONTENT)
+@entrega.delete("/entregas/delete/{id}", tags=["entregas"])
 def delete_user(id: int):
     response = get_by_id(id)
     if response is None:
