@@ -33,7 +33,7 @@ def create(entrega_i: Entrega):
                 nome_cliente = entrega_i.nome_cliente,
                 telefone = entrega_i.telefone,
                 bairro = entrega_i.bairro,
-                status = entrega_i.status,
+                status = "Aguardando",
                 logradouro = entrega_i.logradouro,
                 hora = hour,
                 data = date
