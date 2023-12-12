@@ -38,8 +38,8 @@ def create(entrega_i: Entrega):
                 hora = hour,
                 data = date
             ))
-        conn.commit()
-        return {"Cadastrado com sucesso"}
+            conn.commit()
+            return {"Cadastrado com sucesso"}
     except ValueError:
         return HTTPException(status_code=422, detail="Dados inválidos")
 
