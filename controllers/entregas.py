@@ -69,7 +69,7 @@ def update_doc(entrega_i: Entrega, id: int):
             return HTTPException(status_code=422, detail="Dados inválidos")
     
 @entrega.put('/entregas/put/s/{id}', tags=["entregas"])
-def update_doc(status: str, id: int):
+def update_status(entrega_i:Entrega):
     response = get_by_id(id)
     if response == None:
         print("Entrega não cadastrada no banco de dados")
@@ -78,7 +78,7 @@ def update_doc(status: str, id: int):
             conn.execute(
                 entregas.update()
                 .values(
-                status = status,
+                status = sentrega_i.status,
             )
                 .where(entregas.c.id == id)
             )
