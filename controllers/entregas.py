@@ -40,8 +40,6 @@ def create(entrega_i: Entrega):
             ))
             conn.commit()
             return {"Cadastrado com sucesso"}
-            else:
-                return {"Número de telefone inválido"}
     except ValueError:
         return HTTPException(status_code=422, detail="Dados inválidos")
 
@@ -67,8 +65,6 @@ def update_doc(entrega_i: Entrega, id: int):
             )
             conn.commit()
             return {"Cadastrado com sucesso"}
-            else:
-                return {"Número de telefone inválido"}
         except ValueError:
             return HTTPException(status_code=422, detail="Dados inválidos")
     
