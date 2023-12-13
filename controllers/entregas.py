@@ -40,6 +40,8 @@ def create(entrega_i: Entrega):
             ))
             conn.commit()
             return {"Cadastrado com sucesso"}
+            else:
+                return {"Número de telefone inválido"}
     except ValueError:
         return HTTPException(status_code=422, detail="Dados inválidos")
 
@@ -65,6 +67,27 @@ def update_doc(entrega_i: Entrega, id: int):
             )
             conn.commit()
             return {"Cadastrado com sucesso"}
+            else:
+                return {"Número de telefone inválido"}
+        except ValueError:
+            return HTTPException(status_code=422, detail="Dados inválidos")
+    
+@entrega.put('/entregas/put/status/{id}', tags=["entregas"])
+def update_doc(status: str, id: int):
+    response = get_by_id(id)
+    if response == None:
+        print("Entrega não cadastrada no banco de dados")
+    else:
+        try:
+            conn.execute(
+                entregas.update()
+                .values(
+                status = status,
+            )
+                .where(entregas.c.id == id)
+            )
+            conn.commit()
+            return {"Status alterado"}
         except ValueError:
             return HTTPException(status_code=422, detail="Dados inválidos")
 
