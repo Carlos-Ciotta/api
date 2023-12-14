@@ -6,6 +6,7 @@ from sqlalchemy import select, insert
 from typing import List
 from datetime import datetime
 import re
+from zoneinfo import ZoneInfo
 
 entrega = APIRouter()
 
@@ -23,7 +24,8 @@ def get_by_id(id:int):
 
 @entrega.post('/entregas/post',tags=["entregas"])
 def create(entrega_i: Entrega):
-    data_hora_atual = datetime.now()
+    fuso_horario_brasil = ZoneInfo('America/Sao_Paulo')
+    data_hora_atual = datetime.now(fuso_horario_brasil)
     date = data_hora_atual.strftime("%d-%m-%Y")
     hour = data_hora_atual.strftime("%H:%M:%S")
     telefone_numerico = re.sub(r'\D', '', entrega_i.telefone)
