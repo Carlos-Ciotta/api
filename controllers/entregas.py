@@ -36,7 +36,8 @@ def create(entrega_i: Entrega):
                 status = "Aguardando",
                 logradouro = entrega_i.logradouro,
                 hora = hour,
-                data = date
+                data = date,
+                previsao = entrega_i.previsao
             ))
             conn.commit()
             return {"Cadastrado com sucesso"}
@@ -59,7 +60,8 @@ def update_doc(entrega_i: Entrega, id: int):
                 telefone = entrega_i.telefone,
                 bairro = entrega_i.bairro,
                 status = entrega_i.status,
-                logradouro = entrega_i.logradouro
+                logradouro = entrega_i.logradouro,
+                previsao = entrega_i.previsao
             )
                 .where(entregas.c.id == id)
             )

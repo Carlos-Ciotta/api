@@ -10,3 +10,4 @@ class Entrega(BaseModel):
     status : str
     hora : str
     data : str
+    previsao : str

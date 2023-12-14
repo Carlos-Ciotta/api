@@ -12,7 +12,8 @@ entregas = Table(
     Column("bairro", String(255)),
     Column("status", String(255)),
     Column("data", String(255)),
-    Column("hora", String(255))
+    Column("hora", String(255)),
+    Column("previsao", String(255))
 )
 
 meta.create_all(engine)
