@@ -8,5 +8,5 @@ app = FastAPI(
     version="0.0.1",
 )
 
-app.include_router(venda)
+#app.include_router(venda)
 app.include_router(entrega)
